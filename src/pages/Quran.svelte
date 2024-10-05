@@ -1,7 +1,6 @@
 <script>
     import axios from "axios";
 	import { onMount } from "svelte";
-    import { Link } from "svelte-routing";
     let [data,query,pilihan,sortedby] = [[],'','name','ascending']
 
     onMount(()=>{
@@ -68,7 +67,7 @@
     <div class=" w-[96%] h-[400px] rounded-md overflow-y-auto flex flex-wrap p-2 gap-2 justify-center">
     {#if sortedData}
     {#each sortedData as item }
-        <Link class=" group relative w-[300px] h-[80px] border-2 border-gray-400 hover:border-[var(--himud)] flex items-center" to={`/quran/surash/${item.number}`}>
+        <a class=" group relative w-[300px] h-[80px] border-2 border-gray-400 hover:border-[var(--himud)] flex items-center" href={`#/quran/surash/${item.number}`}>
             <div class=" w-[45px] h-[45px] bg-gray-400 group-hover:bg-[var(--himud)] ml-5 rotate-45 flex justify-center items-center">
                 <h1 class=" -rotate-45 text-white text-2xl font-semibold">{item.number}</h1>
             </div>
@@ -79,7 +78,7 @@
             {#if item.revelation.toLowerCase() == 'makkiyah'}
                 <i class=" fa fa-kaaba absolute right-2 top-2"></i>
             {/if}
-        </Link>
+        </a>
     {/each}
     {:else}
         <h1>loading</h1>

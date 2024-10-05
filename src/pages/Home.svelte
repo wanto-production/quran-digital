@@ -1,7 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     let ScrollTrigger;
-    import { Link } from 'svelte-routing';
 
     onMount(async () => {
     if (typeof window !== 'undefined') {
@@ -73,5 +72,5 @@
         <h1>anda merasa jauh dari Allah?</h1>
         <i class="fa fa-arrow-down"></i>
     </div>
-    <Link class="animate text-white font-semibold bg-[var(--emas)] p-[10px] rounded-md" to="/quran">baca quran <i class=" fa fa-arrow-right"></i></Link>
+    <a class="animate text-white font-semibold bg-[var(--emas)] p-[10px] rounded-md" href="#/quran">baca quran <i class=" fa fa-arrow-right"></i></a>
 </section>

@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-    import { Link } from 'svelte-routing';
     import axios from 'axios';
     export let id;
     const params = id
@@ -51,7 +50,7 @@
 </svelte:head>
 
 <div class=" w-full h-screen flex flex-col justify-end items-center pb-3">
-    <Link class=" mb-3 text-white bg-[var(--emas)] p-[10px] rounded-md" to="/quran"><i class=" fa fa-arrow-left"></i> kembali</Link>
+    <a class=" mb-3 text-white bg-[var(--emas)] p-[10px] rounded-md" href="#/quran"><i class=" fa fa-arrow-left"></i> kembali</a>
     <div class=" w-[98%] h-[70px] border-t-2 border-gray-400  flex items-center justify-end">
         <button on:click={()=> sortedby=sortedby=='ascending'?'descending':'ascending'}>sort by: <span class=" text-white bg-[var(--hitu)] p-[10px]">{sortedby}</span></button>
     </div>
