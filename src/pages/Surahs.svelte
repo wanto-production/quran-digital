@@ -1,13 +1,12 @@
 <script>
 	import { onMount } from 'svelte';
     import axios from 'axios';
-    export let id;
-    const params = id
+    export let params;
     let sortedby = 'ascending'
     let data;
 
     const fetchdata=async()=>{
-        const res = await fetch(`https://quran-api-id.vercel.app/surahs/${params}`)
+        const res = await fetch(`https://quran-api-id.vercel.app/surahs/${params.id}`)
         if (res.ok) {
             return res.json()
         }
@@ -27,7 +26,7 @@
     }
 
     onMount(()=>{
-        axios.get(`https://quran-api-id.vercel.app/surahs/${params}`)
+        axios.get(`https://quran-api-id.vercel.app/surahs/${params.id}`)
          .then(res => {
             data = res.data
           })
@@ -46,7 +45,7 @@
     {:then data} 
         <title>surash {data.name}</title>
     {/await}
-    <meta name="description" content={`surat ke ${params}`}>
+    <meta name="description" content={`surat ke ${params.id}`}>
 </svelte:head>
 
 <div class=" w-full h-screen flex flex-col justify-end items-center pb-3">
