@@ -4,6 +4,7 @@
     import Home from "./pages/Home.svelte";
     import Quran from "./pages/Quran.svelte";
     import Surahs from "./pages/Surahs.svelte";
+    import Notfound from "./pages/Notfound.svelte";
     import '@fortawesome/fontawesome-free/css/all.min.css'
     let scrollY = 0
     let isOpen = false
@@ -49,5 +50,8 @@
         <Quran/>
     </Route>
     <Route path="/quran/surash/:id" component={Surahs}/>
+    <Route path="*">
+        <Notfound/>
+    </Route>
   </main>
 </Router>
