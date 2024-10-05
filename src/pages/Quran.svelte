@@ -61,25 +61,34 @@
             </select>
         </form>
     </div>
-    <div class=" w-[96%] h-[70px] border-t-2 border-gray-400 flex justify-end items-center">
+    <div class=" w-[96%] h-[70px] border-t-2 border-gray-400 flex justify-between items-center">
+        {#if data.length > 0}
+            {#if query && filtered.length <= 0}
+            <h1>{query} not found</h1>
+            {:else}
+            <h1>data: {sortedData.length}</h1>
+            {/if}
+        {:else}
+        <h1>loading...</h1>
+        {/if}
         <button on:click={()=> sortedby=sortedby=='ascending'?'descending':'ascending'}>sort by: <span class=" text-white bg-[var(--hitu)] p-[10px]">{sortedby}</span></button>
     </div>
     <div class=" w-[96%] h-[400px] rounded-md overflow-y-auto flex flex-wrap p-2 gap-2 justify-center">
     {#if sortedData}
-    {#each sortedData as item }
-        <a class=" group relative w-[300px] h-[80px] border-2 border-gray-400 hover:border-[var(--himud)] flex items-center" href={`#/quran/surash/${item.number}`}>
-            <div class=" w-[45px] h-[45px] bg-gray-400 group-hover:bg-[var(--himud)] ml-5 rotate-45 flex justify-center items-center">
-                <h1 class=" -rotate-45 text-white text-2xl font-semibold">{item.number}</h1>
-            </div>
-            <div class=" ml-4">
-                <h1 class=" text-2xl font-semibold group-hover:text-[var(--himud)]">{item.name}</h1>
-                <p>translate: {item.translation}</p>
-            </div>
-            {#if item.revelation.toLowerCase() == 'makkiyah'}
-                <i class=" fa fa-kaaba absolute right-2 top-2"></i>
-            {/if}
-        </a>
-    {/each}
+        {#each sortedData as item }
+            <a class=" group relative w-[300px] h-[80px] border-2 border-gray-400 hover:border-[var(--himud)] flex items-center" href={`#/quran/surash/${item.number}`}>
+                <div class=" w-[45px] h-[45px] bg-gray-400 group-hover:bg-[var(--himud)] ml-5 rotate-45 flex justify-center items-center">
+                    <h1 class=" -rotate-45 text-white text-2xl font-semibold">{item.number}</h1>
+                </div>
+                <div class=" ml-4">
+                    <h1 class=" text-2xl font-semibold group-hover:text-[var(--himud)]">{item.name}</h1>
+                    <p>translate: {item.translation}</p>
+                </div>
+                {#if item.revelation.toLowerCase() == 'makkiyah'}
+                    <i class=" fa fa-kaaba absolute right-2 top-2"></i>
+                {/if}
+            </a>
+        {/each}
     {:else}
         <h1>loading</h1>
     {/if}
