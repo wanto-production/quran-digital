@@ -73,7 +73,7 @@
         {/if}
         <button on:click={()=> sortedby=sortedby=='ascending'?'descending':'ascending'}>sort by: <span class=" text-white bg-[var(--hitu)] p-[10px]">{sortedby}</span></button>
     </div>
-    <div class=" w-[96%] h-[400px] rounded-md overflow-y-auto flex flex-wrap p-2 gap-2 justify-center">
+    <div class=" w-[96%] h-[355px] rounded-md overflow-y-auto flex flex-wrap p-2 gap-2 justify-center">
     {#if sortedData}
         {#each sortedData as item }
             <a class=" group relative w-[300px] h-[80px] border-2 border-gray-400 hover:border-[var(--himud)] flex items-center" href={`#/quran/surash/${item.number}`}>
